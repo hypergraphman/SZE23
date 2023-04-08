@@ -1,4 +1,4 @@
-data = [ int(x) for x in open("17-304.txt") ]
+data = [int(x) for x in open("17-304.txt") ]
 N = len(data)
 
 M = max( x for x in data if x % 246 == 0 )
