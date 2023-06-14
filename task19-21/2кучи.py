@@ -1,19 +1,18 @@
-win = 62
-start = 7
-
-
-def f(a, b, c, m):
-    if a + b >= win:
+def f(s1, s2, c, m):
+    if s1 + s2 >= 77:
         return c % 2 == m % 2
     if c == m:
         return False
-    moves = [f(a + 2, b, c + 1, m), f(a, b + 2, c + 1, m), f(a * 2, b, c + 1, m), f(a, b * 2, c + 1, m)]
-    return any(moves) if (c + 1) % 2 == m % 2 else all(moves)  # any, если первый ход пети был неудачный
+    moves = [f(s1 + 2, s2, c + 1, m),
+             f(s1, s2 + 2, c + 1, m),
+             f(s1 * 2, s2, c + 1, m),
+             f(s1, s2 * 2, c + 1, m)]
+    return any(moves) if (c + 1) % 2 == m % 2 else all(moves)
 
 
-for b in range(1, win - start):
+for s in range(1, 70):
     for m in range(1, 5):
-        if f(start, 24, 0, m):
-            print(24, m)
+        if f(7, s, 0, m):
+            print(s, m)
             break
 
